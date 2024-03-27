@@ -8,7 +8,7 @@ class mainController extends Controller
 {
     function menuUtama()
     {
-        return view('main_menu');
+        return view('main_menu_baru');
     }
 
     function login()

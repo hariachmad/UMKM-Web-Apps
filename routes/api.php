@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/posts',[TransaksiPenjualanController::class,'index'])->name('index');
 Route::post('/posts/simpan', [TransaksiPenjualanController::class,'create']);
-Route::get('/posts/ambilData',[BarangJadiController::class,'index']);
+Route::get('/posts/ambilData/barangJadi',[BarangJadiController::class,'index']);
 Route::get('/posts/ambilHarga/{item}',[BarangJadiController::class,'ambilHarga']);

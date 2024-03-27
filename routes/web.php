@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/',[mainController::class,'menuUtama']);
 Route::get('/mainmenu',[mainController::class,'menuUtama']);
 Route::get('/',[mainController::class,'login']);
 Route::get('/home',[penjualanController::class,'index']);
