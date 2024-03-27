@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sisas', function (Blueprint $table) {
-            $table->integer('nomor_sisa')->primary()->unsigned()->increments();
+            $table->increments('nomor_sisa');
             $table->biginteger('total_sisa');
+            $table->string('tanggal_sisa');
         });
     }
 

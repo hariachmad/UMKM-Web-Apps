@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barangjadis', function (Blueprint $table) {
-            $table->integer('plu_barang_jadi')->primary()->unsigned()->increments();
+        Schema::create('barang_jadis', function (Blueprint $table) {
+            $table->increments('plu_barang_jadi');
             $table->string('nama_item');
             $table->bigInteger('harga');
         });
@@ -23,6 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        
         Schema::dropIfExists('barangjadis');
     }
 };

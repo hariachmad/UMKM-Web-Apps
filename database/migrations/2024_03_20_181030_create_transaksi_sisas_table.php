@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaksi_sisas', function (Blueprint $table) {
-            $table->integer('nomor_transaksi_sisa')->primary()->unsigned()->increments();
-            $table->integer('plu_barang_jadi');
+            $table->increments('nomor_transaksi_sisa');
+            $table->integer('plu_barang_jadi')->unsigned();
             $table->integer('qty');
             $table->integer('nomor_penjualan');
             $table->string('tanggal_transaksi_sisa');
             $table->bigInteger('total_harga');
-            $table->string('lokasi');       
+            $table->string('lokasi');
+
+            $table->foreign('plu_barang_jadi')->references('plu_barang_jadi')->on('barang_jadis');
         });
     }
 
@@ -27,6 +29,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('transaksi_sisas');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        
     }
 };
